@@ -43,7 +43,7 @@ const token = "EAAIM2gyEGTYBAJmr1302WOujRbB2TmcnbSzK1Q8RwG37mWp9LlEYwIlZCV0buoP7
 function sendMessage(recipientId, message) {
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
+        qs: {access_token: "EAAIM2gyEGTYBAJmr1302WOujRbB2TmcnbSzK1Q8RwG37mWp9LlEYwIlZCV0buoP7bnso8kJRiKWoAZBRvWk0kZCh188QNPRzQg50UjfJ1CXAMtG8uXRGHSERLFAMWUC53JwIxmagiZAmH9cWD67yL3a2QBA8l51SIvaxydOYIQZDZD"},
         method: 'POST',
         json: {
             recipient: {id: recipientId},
