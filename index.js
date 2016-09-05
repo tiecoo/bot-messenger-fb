@@ -38,7 +38,7 @@ app.post('/webhook/', function (req, res) {
                 sendGenericMessage(sender)
                 continue
             }
-            sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+            sendTextMessage(sender, "Mensagem recebida, Isso: " + text.substring(0, 200) + " ?")
         }
     }
     res.sendStatus(200)
