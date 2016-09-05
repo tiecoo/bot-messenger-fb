@@ -27,18 +27,16 @@ app.get('/webhook/', function (req, res) {
 })
 
 
-app.post('/webhook/', function (req, res) {
-    let messaging_events = req.body.entry[0].messaging
-    for (let i = 0; i < messaging_events.length; i++) {
-        let event = req.body.entry[0].messaging[i]
-        let sender = event.sender.id
+app.post('/webhook', function (req, res) {
+    var events = req.body.entry[0].messaging;
+    for (i = 0; i < events.length; i++) {
+        var event = events[i];
         if (event.message && event.message.text) {
-            let text = event.message.text
-            sendTextMessage(sender, "Mensagem recebida, echo: " + text.substring(0, 200))
+            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
         }
     }
-    res.sendStatus(200)
-})
+    res.sendStatus(200);
+});
 
 const token = "EAAIM2gyEGTYBAJmr1302WOujRbB2TmcnbSzK1Q8RwG37mWp9LlEYwIlZCV0buoP7bnso8kJRiKWoAZBRvWk0kZCh188QNPRzQg50UjfJ1CXAMtG8uXRGHSERLFAMWUC53JwIxmagiZAmH9cWD67yL3a2QBA8l51SIvaxydOYIQZDZD"
 
