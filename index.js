@@ -38,6 +38,10 @@ app.post('/webhook/', function (req, res) {
                 sendGenericMessage(sender)
                 continue
             }
+            if (text === 'Bomdia') {
+                sendGoodMorning(sender)
+                continue
+            }
             sendTextMessage(sender, "Mensagem recebida, Isso: " + text.substring(0, 200) + " ?")
         }
     }
@@ -116,6 +120,10 @@ function sendGenericMessage(sender) {
          console.log('Error: ', response.body.error)
       }
    })
+}
+
+function sendGoodMorning(sender){
+   sendTextMessage(sender, "Bom diaaaaa")
 }
 
 // spin spin sugar
